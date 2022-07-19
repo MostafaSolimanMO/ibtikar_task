@@ -19,6 +19,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   # Networking
   dio: ^4.0.6
+  dio_cache_interceptor: ^3.3.0
   pretty_dio_logger: ^1.1.1
   # Utils
   cached_network_image: ^3.2.1
