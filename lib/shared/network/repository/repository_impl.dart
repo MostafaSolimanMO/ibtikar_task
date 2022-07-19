@@ -60,7 +60,7 @@ extension on Repository {
           }
           return msg ?? e.error;
         case DioErrorType.other:
-          return e.error;
+          return e.error.toString();
         default:
           return e.toString();
       }
