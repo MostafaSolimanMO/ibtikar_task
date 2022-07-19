@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ibtikar_task/modules/popular_people/model/popular_people_item_model.dart';
 import 'package:ibtikar_task/shared/components/cached_image.dart';
 import 'package:ibtikar_task/shared/components/conditional_builder.dart';
+import 'package:ibtikar_task/shared/components/image_downloader.dart';
 import 'package:ibtikar_task/shared/di/di.dart';
 
 import 'cubit/cubit.dart';
@@ -26,9 +27,22 @@ class PeopleDetailsScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(12),
         children: [
-          CachedImage(
-            imageUrl: person.profilePath!,
-            height: 260,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ImageDownloader(
+                    imageUrl: person.profilePath!,
+                    title: person.name,
+                  ),
+                ),
+              );
+            },
+            child: CachedImage(
+              imageUrl: person.profilePath!,
+              height: 260,
+            ),
           ),
           const SizedBox(
             height: 24,
@@ -114,9 +128,22 @@ class PeopleDetailsScreen extends StatelessWidget {
                           padding: const EdgeInsets.all(12),
                           itemBuilder: (context, index) {
                             final image = cubit.personImages[index + 1];
-                            return CachedImage(
-                              imageUrl: image.filePath!,
-                              height: 200,
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ImageDownloader(
+                                      imageUrl: image.filePath!,
+                                      title: person.name,
+                                    ),
+                                  ),
+                                );
+                              },
+                              child: CachedImage(
+                                imageUrl: image.filePath!,
+                                height: 200,
+                              ),
                             );
                           },
                           itemCount: cubit.personImages.length - 1,
