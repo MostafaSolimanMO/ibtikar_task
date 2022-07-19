@@ -27,7 +27,7 @@ class CachedImage extends StatelessWidget {
     String url = EndPoints.imageBaseUrl + imageUrl;
     return CachedNetworkImage(
       imageUrl: url,
-      fit: BoxFit.cover,
+      fit: BoxFit.contain,
       imageBuilder: (context, imageProvider) {
         return Container(
           height: height,
@@ -37,7 +37,7 @@ class CachedImage extends StatelessWidget {
             borderRadius: BorderRadius.circular(radius),
             child: Image(
               image: imageProvider,
-              fit: BoxFit.cover,
+              fit: BoxFit.contain,
             ),
           ),
         );
@@ -61,18 +61,20 @@ class CachedImage extends StatelessWidget {
       placeholder: (context, url) {
         return Container(
           height: height,
-          color: const Color(0xFFF8F8F8),
           width: width ?? double.infinity,
           padding: padding ?? const EdgeInsets.all(10),
-          child: ClipRRect(
+          decoration: BoxDecoration(
+            color: const Color(0xFFF8F8F8),
             borderRadius: BorderRadius.circular(radius),
-            child: Shimmer.fromColors(
-              baseColor: Colors.grey.shade200,
-              highlightColor: Colors.white,
-              direction: ShimmerDirection.ttb,
-              child: Assets.icons.imageIcon.svg(
-                fit: BoxFit.contain,
-              ),
+          ),
+          child: Shimmer.fromColors(
+            baseColor: Colors.grey.shade200,
+            highlightColor: Colors.white,
+            direction: ShimmerDirection.ttb,
+            child: Assets.icons.imageIcon.svg(
+              height: height,
+              width: width ?? double.infinity,
+              fit: BoxFit.contain,
             ),
           ),
         );
