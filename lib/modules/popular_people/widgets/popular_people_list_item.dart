@@ -14,11 +14,14 @@ class PopularPeopleListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        CachedImage(
-          imageUrl: peopleItemModel.profilePath!,
-          height: 42,
-          width: 42,
-          radius: 25,
+        Hero(
+          tag: peopleItemModel.profilePath!,
+          child: CachedImage(
+            imageUrl: peopleItemModel.profilePath!,
+            height: 42,
+            width: 42,
+            radius: 25,
+          ),
         ),
         const SizedBox(
          width: 12,

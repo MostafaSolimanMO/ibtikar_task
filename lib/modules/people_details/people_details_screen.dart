@@ -39,9 +39,12 @@ class PeopleDetailsScreen extends StatelessWidget {
                 ),
               );
             },
-            child: CachedImage(
-              imageUrl: person.profilePath!,
-              height: 260,
+            child: Hero(
+              tag:  person.profilePath!,
+              child: CachedImage(
+                imageUrl: person.profilePath!,
+                height: 260,
+              ),
             ),
           ),
           const SizedBox(

@@ -32,10 +32,13 @@ class _ImageDownloaderState extends State<ImageDownloader> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              CachedImage(
-                imageUrl: widget.imageUrl,
-                margin: EdgeInsets.zero,
-                radius: 0,
+              Hero(
+                tag: widget.imageUrl,
+                child: CachedImage(
+                  imageUrl: widget.imageUrl,
+                  margin: EdgeInsets.zero,
+                  radius: 0,
+                ),
               ),
               const SizedBox(
                 height: 24,
