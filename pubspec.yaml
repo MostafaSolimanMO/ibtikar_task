@@ -14,17 +14,34 @@ dependencies:
   cupertino_icons: ^1.0.5
   dartz: ^0.10.1
   get_it: ^7.2.0
+  shared_preferences: ^2.0.15
   # State management
   flutter_bloc: ^8.0.1
   # Networking
   dio: ^4.0.6
   pretty_dio_logger: ^1.1.1
+  # Utils
+  cached_network_image: ^3.2.1
+  flutter_svg: ^1.1.0
+  shimmer: ^2.0.0
 
 dev_dependencies:
+  build_runner: ^2.2.0
+  flutter_gen_runner: ^4.3.0
+  flutter_lints: ^2.0.1
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
+
+
+flutter_gen:
+  output: lib/shared/assets/
+  line_length: 120
+
+  integrations:
+    flutter_svg: true
 
 flutter:
 
   uses-material-design: true
+  assets:
+    - assets/icons/
