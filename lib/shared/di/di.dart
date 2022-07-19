@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:ibtikar_task/modules/people_details/cubit/cubit.dart';
 import 'package:ibtikar_task/modules/popular_people/cubit/cubit.dart';
 import 'package:ibtikar_task/shared/network/api_endpoints.dart';
 import 'package:ibtikar_task/shared/network/cubit/cubit.dart';
@@ -38,6 +39,12 @@ Future init() async {
 
   di.registerFactory<PopularPeopleCubit>(
     () => PopularPeopleCubit(
+      di<Repository>(),
+    ),
+  );
+
+  di.registerFactory<PeopleDetailsCubit>(
+    () => PeopleDetailsCubit(
       di<Repository>(),
     ),
   );

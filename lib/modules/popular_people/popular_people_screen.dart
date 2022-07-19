@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ibtikar_task/modules/people_details/people_details_screen.dart';
 import 'package:ibtikar_task/modules/popular_people/widgets/popular_people_list_item.dart';
 import 'package:ibtikar_task/shared/components/conditional_builder.dart';
 import 'package:ibtikar_task/shared/components/load_more.dart';
@@ -50,8 +51,21 @@ class PopularPeopleScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(12),
                         itemBuilder: (context, index) {
                           final person = cubit.popularPeopleFeed[index];
-                          return PopularPeopleListItem(
-                            peopleItemModel: person,
+                          return GestureDetector(
+                            behavior: HitTestBehavior.translucent,
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PeopleDetailsScreen(
+                                    person: person,
+                                  ),
+                                ),
+                              );
+                            },
+                            child: PopularPeopleListItem(
+                              peopleItemModel: person,
+                            ),
                           );
                         },
                         separatorBuilder: (context, index) {

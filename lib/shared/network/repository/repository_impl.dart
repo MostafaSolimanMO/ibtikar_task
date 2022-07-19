@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:ibtikar_task/modules/people_details/model/person_images_response_model.dart';
 import 'package:ibtikar_task/modules/popular_people/model/popular_people_respnse_model.dart';
 import 'package:ibtikar_task/shared/network/api_endpoints.dart';
 import 'package:ibtikar_task/shared/network/dio/dio_helper.dart';
@@ -24,6 +25,22 @@ class RepoImpl extends Repository {
           EndPoints.popularPerson,
         );
         return PopularPeopleResponseModel.fromJson(f.data);
+      },
+    );
+  }
+
+  @override
+  Future<Either<String, PersonImagesResponseModel>> getPersonImages({
+    required int personId,
+  }) {
+    return _responseHandling<PersonImagesResponseModel>(
+      onSuccess: () async {
+        final f = await dioHelper.get(
+          EndPoints.getPersonImages(
+            personId: personId,
+          ),
+        );
+        return PersonImagesResponseModel.fromJson(f.data);
       },
     );
   }
