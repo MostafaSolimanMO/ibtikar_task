@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ibtikar_task/modules/popular_people/popular_people_screen.dart';
 import 'package:ibtikar_task/shared/di/di.dart';
 
 import 'shared/network/cubit/cubit.dart';
@@ -48,9 +49,9 @@ class MyApp extends StatelessWidget {
             navigatorKey: navigatorKey,
             debugShowCheckedModeBanner: false,
             theme: ThemeData(
-              primarySwatch: Colors.green,
+              primarySwatch: Colors.teal,
             ),
-            home:  Container(),
+            home: const PopularPeopleScreen(),
           ),
         ),
       ),

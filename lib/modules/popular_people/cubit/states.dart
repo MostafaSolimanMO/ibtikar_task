@@ -10,6 +10,8 @@ class InitialPopularPeopleState extends PopularPeopleStates {}
 
 class LoadingPopularPeopleState extends PopularPeopleStates {}
 
+class LoadingMorePopularPeopleState extends PopularPeopleStates {}
+
 class ReloadingPopularPeopleState extends PopularPeopleStates {}
 
 class SuccessPopularPeopleState extends PopularPeopleStates {}
