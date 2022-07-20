@@ -4,6 +4,4 @@ A new Flutter project (Technical Task) for Ibtikar Technologies
 
 ## Screenshots
 
-![img.png](img.png)
-![img_1.png](img_1.png)
-![img_2.png](img_2.png)
+<img src="img.png" width="250"> <img src="img_1.png" width="250"> <img src="img_2.png" width="250">
