@@ -40,7 +40,7 @@ class PeopleDetailsScreen extends StatelessWidget {
               );
             },
             child: Hero(
-              tag:  person.profilePath!,
+              tag: person.profilePath!,
               child: CachedImage(
                 imageUrl: person.profilePath!,
                 height: 260,
@@ -78,7 +78,7 @@ class PeopleDetailsScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 8),
                   Text(
-                    person.gender! == 0 ? 'Male' : 'Female',
+                    person.gender! == 1 ? 'Female' : 'Male',
                     style: Theme.of(context).textTheme.subtitle1,
                   ),
                 ],
