@@ -26,12 +26,16 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: BlocListener<NetworkCubit, NetworkStates>(
-        listenWhen: (previous, current) => previous != current,
+        listenWhen: (previous, current) {
+            return previous.runtimeType != current.runtimeType;
+        },
         listener: (context, state) {
           switch (state.runtimeType) {
             case UnauthenticatedState:
+              // Nav to login for example
               return;
             case SocketErrorState:
+              // Nav to no internet screen
               break;
             case ClientErrorState:
               break;
